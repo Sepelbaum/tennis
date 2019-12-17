@@ -11,7 +11,7 @@ Data was taken from Tennis ATP and Jeff Sackmann's work on accumulating tennis d
 
 ## Feature Engineering:
 
-I transformed the whole dataset so that the information associated with each observation (i.e. point) could be used to predict the outcome of that point. This meant calculating statistics such as the Net Point Rate of each player (how often a player comes up to net), along with the Net Point Win Rate (how often a player wins when she/he comes up to net), considering  the preceding points of that match. Importantly, these statistics did not include the outcome of the point we are trying to predict.
+I transformed the whole dataset so that the information associated with each observation (i.e. point) could be used to predict the outcome of that point. This meant calculating statistics such as the Net Point Rate of each player (how often a player comes up to net), along with the Net Point Win Rate (how often a player wins when she/he comes up to net), considering  the preceding points of that match. Importantly, these statistics did not include the outcome of the point we are trying to predict. 
 
 
 ![Screen Shot 2019-12-16 at 9 17 36 AM](https://user-images.githubusercontent.com/52469561/70914327-c584ad80-1fe5-11ea-94ab-82a625eb631f.png)
@@ -27,4 +27,15 @@ I transformed the whole dataset so that the information associated with each obs
 
 ![Screen Shot 2019-12-16 at 12 20 02 PM](https://user-images.githubusercontent.com/52469561/70928155-6da67080-1ffe-11ea-9fe5-86f60c3f12e0.png)
 ![Screen Shot 2019-12-16 at 12 19 51 PM](https://user-images.githubusercontent.com/52469561/70928156-6da67080-1ffe-11ea-9f4f-76f0a3964500.png)
+
+## Model Building
+
+I fit models using CV GridSearch Random Forest, AdaBoost, Gradient Boost, and Logistic Regression. Since I was most interested in being able to predict correctly without prioritizing ability to predict postiives or negatives (Player 1 winning or Player 2 winning), I focused on Accuracy and the AUC score for ROC curve. The AUC score for ROC helps to capture the trade-off between false positives and true positives, and so better captures a model's ability to predict correctly overall. Using this criteria, the best model turned out to be Gradient Boost. Tree algorithms work particularly well for datasets with high interaction amongst predictors. Interaction seem likely for tennis data where some variables become more relevant when others are, too, relevant. However, this is just conjuncture. Additionally, the Gradient Boosting method helps to avoid the tendancy to over fit. 
+
+## Gradient Boost -- Final Model
+![Screen Shot 2019-12-17 at 7 21 26 AM](https://user-images.githubusercontent.com/52469561/70995128-c24cf880-209d-11ea-991b-80f0958b27c9.png)
+### We can see above that while Accuracy score is 75% the AUC score is 84%, the model does better at overpredicting positives (when Player 1 wins) and misses many true negatives (when Player 2 wins). Moving forward, we could try to adjust the threshold between the tradeoff between true positives and false positives to get a more balanced model prediction.
+
+## Conclusion and Next Steps
+While the Gradient Boost Model performed well at predicting who would win the next point, I would be interested in doing further feature engineering and model optimization in order to see if we could improve a more interpretable model. This would allow us to get a better sense of what features end up being predictive.
 

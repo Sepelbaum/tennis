@@ -32,10 +32,10 @@ I am working against a baseline model with an Accuracy Socre of ~50%. I fit mode
 
 ## Gradient Boost -- Final Model
 ![Screen Shot 2019-12-17 at 7 21 26 AM](https://user-images.githubusercontent.com/52469561/70995128-c24cf880-209d-11ea-991b-80f0958b27c9.png)
-### We can see above that while Accuracy score is 75% (well above the baseline model) the AUC score is 84%, the model does better at overpredicting positives (when Player 1 wins) and misses many true negatives (when Player 2 wins). Moving forward, we could try to adjust the threshold between the tradeoff between true positives and false positives to get a more balanced model prediction.
+We can see above that while Accuracy score is 75% (well above the baseline model) the AUC score is 84%, the model does better at overpredicting positives (when Player 1 wins) and misses many true negatives (when Player 2 wins). Moving forward, we could try to adjust the threshold between the tradeoff between true positives and false positives to get a more balanced model prediction.
 
 ## Feature Importance
-### As we can see below, the most important features are A) features that tell us where we are in the match and how the player has scored so far and B) the rolling statistics for Ace rates and Break Point rates based on the last 5 relevant instances.
+As we can see below, the most important features are A) features that tell us where we are in the match and how important the point is, and B) the rolling statistics for Ace rates and Break Point rates based on the last 5 relevant instances.
 ![Screen Shot 2020-02-18 at 12 16 35 PM](https://user-images.githubusercontent.com/52469561/74761182-968af200-5249-11ea-8b16-621400067f4b.png)
 
 ## Conclusion and Next Steps

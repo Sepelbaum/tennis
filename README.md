@@ -18,15 +18,13 @@ I transformed the whole dataset so that the information associated with each obs
 
 ![Screen Shot 2019-12-16 at 9 25 51 AM](https://user-images.githubusercontent.com/52469561/70914419-f664e280-1fe5-11ea-83ab-2479cf65c617.png)
 
-## Exploratory Data Analysis -- CLEAN UP! and FEATURE IMPORTANCE!
+## Exploratory Data Analysis
 ### Checking for Class Imbalance
 ![Screen Shot 2019-12-16 at 9 48 09 AM](https://user-images.githubusercontent.com/52469561/70916190-41ccc000-1fe9-11ea-9cc4-100687e9df36.png)
 
-### Checking for Differences in Feature Averages and Distributions when Grouped by Player
-#### This is important because the assignation of "Player 1" vs. "Player 2" for each match is random. Since each observation represents a point in a match, and since we have different matches represented within the dataframe, we want to ensure that Player 1 is not, already, more likely to win at baseline.
+### Comparison of Feature Averages and Distributions when Grouped by Player
+#### This is important because the assignation of "Player 1" vs. "Player 2" for each match is random. Since each observation represents a point in a match, and since we have different matches represented within the dataframe, we want to ensure that Player 1 is not, already, more likely to win at baseline. There was no significant difference between the averages and distributions for Player 1 and Player 2 ACCROSS matches.
 
-![Screen Shot 2019-12-16 at 12 20 02 PM](https://user-images.githubusercontent.com/52469561/70928155-6da67080-1ffe-11ea-9fe5-86f60c3f12e0.png)
-![Screen Shot 2019-12-16 at 12 19 51 PM](https://user-images.githubusercontent.com/52469561/70928156-6da67080-1ffe-11ea-9f4f-76f0a3964500.png)
 
 ## Model Building
 
@@ -35,6 +33,10 @@ I am working against a baseline model with an Accuracy Socre of ~50%. I fit mode
 ## Gradient Boost -- Final Model
 ![Screen Shot 2019-12-17 at 7 21 26 AM](https://user-images.githubusercontent.com/52469561/70995128-c24cf880-209d-11ea-991b-80f0958b27c9.png)
 ### We can see above that while Accuracy score is 75% (well above the baseline model) the AUC score is 84%, the model does better at overpredicting positives (when Player 1 wins) and misses many true negatives (when Player 2 wins). Moving forward, we could try to adjust the threshold between the tradeoff between true positives and false positives to get a more balanced model prediction.
+
+## Feature Importance
+### As we can see below, the most important features are A) features that tell us where we are in the match and how the player has scored so far and B) the rolling statistics for Ace rates and Break Point rates based on the last 5 relevant instances.
+![Screen Shot 2020-02-18 at 12 16 35 PM](https://user-images.githubusercontent.com/52469561/74761182-968af200-5249-11ea-8b16-621400067f4b.png)
 
 ## Conclusion and Next Steps
 While the Gradient Boost Model performed well at predicting who would win the next point, I would be interested in doing further feature engineering and model optimization in order to see if we could improve a more interpretable model. This would allow us to get a better sense of what features end up being predictive.

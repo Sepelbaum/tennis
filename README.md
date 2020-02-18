@@ -18,7 +18,7 @@ I transformed the whole dataset so that the information associated with each obs
 
 ![Screen Shot 2019-12-16 at 9 25 51 AM](https://user-images.githubusercontent.com/52469561/70914419-f664e280-1fe5-11ea-83ab-2479cf65c617.png)
 
-## Exploratory Data Analysis
+## Exploratory Data Analysis -- CLEAN UP! and FEATURE IMPORTANCE!
 ### Checking for Class Imbalance
 ![Screen Shot 2019-12-16 at 9 48 09 AM](https://user-images.githubusercontent.com/52469561/70916190-41ccc000-1fe9-11ea-9cc4-100687e9df36.png)
 
